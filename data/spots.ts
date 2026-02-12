@@ -12,12 +12,12 @@ export type Ratings = {
   export type HotPotPlace = {
     id: string;
     name: string;
-    rank: string;       // e.g. "#5 in NYC"
+    rank: string;      
     address: string;
     location: { lat: number; lng: number };
-    imageUrl?: string;  // Optional photo URL
+    imageUrl?: string;  
     ratings: Ratings;
-    reviewText: string; // The full blurb
+    reviewText: string; 
   };
   
   export const HOT_POT_DATA: HotPotPlace[] = [
@@ -54,6 +54,5 @@ export type Ratings = {
         value: 5
       },
       reviewText: "Old school AYCE. It is loud, crowded, and smells amazing. Best value for money in Chinatown."
-    },
-    // Add more spots here...
+    }
   ];

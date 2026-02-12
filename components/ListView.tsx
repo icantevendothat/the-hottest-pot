@@ -1,54 +1,77 @@
 'use client';
 import { HotPotPlace } from '@/data/spots';
 
-export default function ListView({ 
-  spots, 
-  onSelect 
-}: { 
-  spots: HotPotPlace[], 
-  onSelect: (place: HotPotPlace) => void 
-}) {
+export default function ListView({ spots, onSelect }: { spots: HotPotPlace[], onSelect: (p: HotPotPlace) => void }) {
+  const headers = ["Spot", "Taste", "Soup", "Sauce", "Ingredients", "Vibe", "Value", "Total"];
+  
   return (
-    <div className="h-full w-full bg-black overflow-auto p-4 md:p-12">
-      <div className="border-2 border-red-600 shadow-[0_0_20px_rgba(220,38,38,0.2)]">
-        <table className="w-full border-collapse text-left">
-          
-          {/* Table Header */}
-          <thead className="bg-red-900/20 text-red-500 font-bold uppercase text-xs tracking-wider">
-            <tr>
-              <th className="p-4 border border-red-600">Spot</th>
-              <th className="p-4 border border-red-600">Overall</th>
-              <th className="p-4 border border-red-600 hidden lg:table-cell">Soup</th>
-              <th className="p-4 border border-red-600 hidden lg:table-cell">Sauce</th>
-              <th className="p-4 border border-red-600 hidden lg:table-cell">Ingred.</th>
-              <th className="p-4 border border-red-600 hidden lg:table-cell">Vibe</th>
-              <th className="p-4 border border-red-600 hidden lg:table-cell">Value</th>
-            </tr>
-          </thead>
+    <div className="w-full font-sans text-white">
+      <div className="grid grid-cols-8 border-l-[2px] border-t-[2px] border-red-600 bg-black">
+        {headers.map(h => (
+          <div key={h} className={`p-4 border-r-[2px] border-b-[2px] border-red-600 bg-red-600/10 text-[8px] font-black uppercase text-center tracking-widest ${h === 'Total' ? 'text-white' : 'text-red-400'}`}>
+            {h}
+          </div>
+        ))}
+        {spots.map((spot) => {
+          // Calculate average
+          const ratings = Object.values(spot.ratings);
+          const average = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
 
-          {/* Table Body */}
-          <tbody className="font-mono text-sm text-gray-300">
-            {spots.map((spot) => (
-              <tr 
-                key={spot.id} 
-                onClick={() => onSelect(spot)}
-                className="hover:bg-red-900/40 cursor-pointer transition-colors group"
+          return (
+            <div key={spot.name} className="contents">
+              <div 
+                onClick={() => onSelect(spot)} 
+                className="p-4 border-r-[2px] border-b-[2px] border-red-600 font-black uppercase text-base cursor-pointer hover:bg-red-600 hover:text-black transition-colors leading-tight flex items-center"
               >
-                <td className="p-4 border border-red-600 font-bold text-white group-hover:text-red-400">
-                  {spot.name}
-                  <div className="lg:hidden text-[10px] text-gray-500 mt-1">{spot.rank}</div>
-                </td>
-                <td className="p-4 border border-red-600 text-red-500 font-bold">{spot.ratings.overall}</td>
-                <td className="p-4 border border-red-600 hidden lg:table-cell">{spot.ratings.soup}</td>
-                <td className="p-4 border border-red-600 hidden lg:table-cell">{spot.ratings.sauce}</td>
-                <td className="p-4 border border-red-600 hidden lg:table-cell">{spot.ratings.ingredients}</td>
-                <td className="p-4 border border-red-600 hidden lg:table-cell">{spot.ratings.atmosphere}</td>
-                <td className="p-4 border border-red-600 hidden lg:table-cell">{spot.ratings.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                {spot.name}
+              </div>
+              {/* Individual Scores */}
+              {[spot.ratings.overall, spot.ratings.soup, spot.ratings.sauce, spot.ratings.ingredients, spot.ratings.atmosphere, spot.ratings.value].map((val, i) => (
+                <div key={i} className="p-4 border-r-[2px] border-b-[2px] border-red-600 text-center font-black text-xl text-red-600 flex items-center justify-center">
+                  {val}
+                </div>
+              ))}
+              {/* Total/Average Column */}
+              <div className="p-4 border-r-[2px] border-b-[2px] border-red-600 text-center font-black text-xl text-white bg-red-600/20 flex items-center justify-center">
+                {average}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
+
+// 'use client';
+// export default function ListView({ spots, onSelect }: any) {
+//   const headers = ["Spot", "Taste", "Soup", "Sauce", "Ingredients", "Vibe", "Value"];
+  
+//   return (
+//     <div className="w-full font-sans text-white">
+//       <div className="grid grid-cols-7 border-l-[2px] border-t-[2px] border-red-600">
+//         {headers.map(h => (
+//           <div key={h} className="p-4 border-r-[2px] border-b-[2px] border-red-600 bg-red-600/10 text-[10px] font-black uppercase text-center tracking-widest">
+//             {h}
+//           </div>
+//         ))}
+//         {spots.map((spot: any) => (
+//           <>
+//             <div 
+//               onClick={() => onSelect(spot)} 
+//               className="p-4 border-r-[2px] border-b-[2px] border-red-600 font-black uppercase text-xl cursor-pointer hover:bg-red-600 hover:text-black leading-none"
+//             >
+//               {spot.name}
+//             </div>
+//             {/* Ratings Cells */}
+//             {[spot.ratings.overall, spot.ratings.soup, spot.ratings.sauce, spot.ratings.ingredients, spot.ratings.atmosphere, spot.ratings.value].map((val, i) => (
+//               <div key={i} className="p-4 border-r-[2px] border-b-[2px] border-red-600 text-center font-black text-2xl text-red-500">
+//                 {val}
+//               </div>
+//             ))}
+//           </>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }

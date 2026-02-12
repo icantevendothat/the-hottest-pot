@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -16,4 +14,19 @@ html, body {
   background: black;
   color: white;
   overflow: auto;
+}
+
+/* globals.css */
+body {
+  background-color: #000;
+  color: #fff;
+  cursor: crosshair; /* Added for that "interactive" map vibe */
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
 }
