@@ -13,7 +13,7 @@ export type HotPotPlace = {
   rank: string;      
   address: string;
   location: { lat: number; lng: number };
-  imageUrl?: string;  
+  imageUrl?: string; // Match this key in the Sidebar
   ratings: Ratings;
   reviewText: string; 
 };

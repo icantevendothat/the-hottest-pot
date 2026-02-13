@@ -57,7 +57,7 @@ export default function AboutPage() {
                   {copied ? "Address Copied to Clipboard" : "Did we miss one?"}
                 </p>
                 <p className="text-xl font-black uppercase group-hover:text-red-600 transition-colors">
-                  {copied ? "COPIED" : "Submit"}
+                  {copied ? "COPIED" : "Submit a spot"}
                 </p>
               </div>
             </div>

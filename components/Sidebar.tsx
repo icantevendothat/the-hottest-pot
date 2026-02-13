@@ -64,36 +64,64 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace }: Sideba
               </h2>
             </div>
             
-            {/* Image */}
-            {selectedPlace.image && (
+            {/* Image - Fixed property name from .image to .imageUrl */}
+            {selectedPlace.imageUrl && (
               <div className="border-[2px] border-white">
-                <img src={selectedPlace.image} className="w-full h-40 object-cover grayscale hover:grayscale-0 transition-all duration-500" alt={selectedPlace.name} />
+                <img 
+                  src={selectedPlace.imageUrl} 
+                  className="w-full h-40 object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+                  alt={selectedPlace.name} 
+                />
               </div>
             )}
 
-            {/* FULL STATS BLOCK */}
-            <div className="space-y-2 uppercase text-[10px] font-black tracking-[0.15em]">
-              <div className="flex justify-between border-b border-white/20 pb-1 text-white">
-                <span>Overall Taste</span> 
-                <SteamRating score={selectedPlace.ratings.overall} size={13} />
+            {/* Stats Block - Use parseFloat to ensure SteamRating gets a number */}
+            <div className="flex justify-between border-b border-white/20 pb-1 text-white">
+              <span>Overall Taste</span> 
+              <SteamRating 
+                score={typeof selectedPlace.ratings.overall === 'string' ? 0 : selectedPlace.ratings.overall} 
+                size={13} 
+              />
+            </div>
+            <div className="pt-2 space-y-2 text-red-500/80">
+              <div className="flex justify-between border-b border-white/10 pb-1">
+                <span>Soup Base</span> 
+                <SteamRating 
+                  score={typeof selectedPlace.ratings.soup === 'number' ? selectedPlace.ratings.soup : 0} 
+                  size={11} 
+                />
               </div>
-
-              <div className="pt-2 space-y-2 text-red-500/80">
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>Soup Base</span> <SteamRating score={selectedPlace.ratings.soup} size={11} />
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>Sauce Bar</span> <SteamRating score={selectedPlace.ratings.sauce} size={11} />
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>Ingredients</span> <SteamRating score={selectedPlace.ratings.ingredients} size={11} />
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>Vibe</span> <SteamRating score={selectedPlace.ratings.atmosphere} size={11} />
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>Value</span> <SteamRating score={selectedPlace.ratings.value} size={11} />
-                </div>
+              
+              <div className="flex justify-between border-b border-white/10 pb-1">
+                <span>Sauce Bar</span> 
+                <SteamRating 
+                  score={typeof selectedPlace.ratings.sauce === 'number' ? selectedPlace.ratings.sauce : 0} 
+                  size={11} 
+                />
+              </div>
+              
+              <div className="flex justify-between border-b border-white/10 pb-1">
+                <span>Ingredients</span> 
+                <SteamRating 
+                  score={typeof selectedPlace.ratings.ingredients === 'number' ? selectedPlace.ratings.ingredients : 0} 
+                  size={11} 
+                />
+              </div>
+              
+              <div className="flex justify-between border-b border-white/10 pb-1">
+                <span>Vibe</span> 
+                <SteamRating 
+                  score={typeof selectedPlace.ratings.atmosphere === 'number' ? selectedPlace.ratings.atmosphere : 0} 
+                  size={11} 
+                />
+              </div>
+              
+              <div className="flex justify-between border-b border-white/10 pb-1">
+                <span>Value</span> 
+                <SteamRating 
+                  score={typeof selectedPlace.ratings.value === 'number' ? selectedPlace.ratings.value : 0} 
+                  size={11} 
+                />
               </div>
             </div>
 

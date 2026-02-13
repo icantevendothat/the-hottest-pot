@@ -4,6 +4,12 @@ import { HotPotPlace } from '@/data/spots';
 export default function ListView({ spots, onSelect }: { spots: HotPotPlace[], onSelect: (p: HotPotPlace) => void }) {
   const headers = ["Spot", "Taste", "Soup", "Sauce", "Ingredients", "Vibe", "Value", "Total"];
   
+  // Explicitly tell TS this helper always returns a number
+  const getScore = (val: number | string): number => {
+    if (typeof val === 'string') return 0;
+    return val;
+  };
+
   return (
     <div className="w-full font-sans text-white">
       <div className="grid grid-cols-8 border-l-[2px] border-t-[2px] border-red-600 bg-black">
@@ -13,9 +19,16 @@ export default function ListView({ spots, onSelect }: { spots: HotPotPlace[], on
           </div>
         ))}
         {spots.map((spot) => {
-          // Calculate average based on real-world ratings
-          const ratings = Object.values(spot.ratings);
-          const average = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
+          // Get ratings as an array of (string | number)
+          const rawRatings = Object.values(spot.ratings);
+          
+          // FIX: Explicitly type the accumulator 'a' as number and use getScore for 'b'
+          const totalNumericalScore = rawRatings.reduce((a: number, b) => a + getScore(b), 0);
+          
+          // FIX: Use the calculated total (a pure number) for the average
+          const average = totalNumericalScore > 0 
+            ? (totalNumericalScore / rawRatings.length).toFixed(1) 
+            : "N/A";
 
           return (
             <div key={spot.id} className="contents group">
@@ -26,14 +39,20 @@ export default function ListView({ spots, onSelect }: { spots: HotPotPlace[], on
                 {spot.name}
               </div>
               
-              {/* Individual Scores scaled down to text-sm */}
-              {[spot.ratings.overall, spot.ratings.soup, spot.ratings.sauce, spot.ratings.ingredients, spot.ratings.atmosphere, spot.ratings.value].map((val, i) => (
+              {/* Render each rating value directly */}
+              {[
+                spot.ratings.overall, 
+                spot.ratings.soup, 
+                spot.ratings.sauce, 
+                spot.ratings.ingredients, 
+                spot.ratings.atmosphere, 
+                spot.ratings.value
+              ].map((val, i) => (
                 <div key={i} className="p-2 border-r-[2px] border-b-[2px] border-red-600 text-center font-black text-sm text-red-600 flex items-center justify-center">
                   {val}
                 </div>
               ))}
               
-              {/* Total/Average Column scaled down to text-sm */}
               <div className="p-2 border-r-[2px] border-b-[2px] border-red-600 text-center font-black text-sm text-white bg-red-600/20 flex items-center justify-center">
                 {average}
               </div>
