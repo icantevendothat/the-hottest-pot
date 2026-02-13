@@ -1,13 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function AboutPage() {
+  const [copied, setCopied] = useState(false);
+  const emailAddress = "thehottestpotnyc@gmail.com"; 
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <main className="relative h-screen w-screen bg-black overflow-hidden font-sans">
-      {/* 1. MAP BACKGROUND (Blurred for focus) */}
+      {/* 1. MAP BACKGROUND */}
       <div className="absolute inset-0 z-0 opacity-40 grayscale blur-[2px]">
-        {/* You can optionally insert your MapComponent here if you want it moving in the back */}
         <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 to-black"></div>
       </div>
 
@@ -21,7 +30,7 @@ export default function AboutPage() {
           </Link>
 
           <h1 className="text-6xl font-black leading-[0.8] uppercase tracking-tighter mb-8">
-            ABOUT <br /> THE <span className="text-red-600">PROJECT</span>
+            ABOUT <br /> THE <span className="text-red-600">HOTTEST</span> POT
           </h1>
 
           <div className="space-y-6">
@@ -31,21 +40,25 @@ export default function AboutPage() {
 
             <div className="text-sm font-medium leading-relaxed text-gray-300 uppercase tracking-widest space-y-4">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                This project was born out of a visceral need to track the numbing, spicy, and savory landscape of New York's hot pot scene. No paid placements, just broth.
               </p>
               <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                From the industrial corners of LIC to the neon-lit basements of Flushing, every spot is vetted for ingredient quality and soup depth.
               </p>
             </div>
 
             <div className="pt-8 border-t border-white/10 flex justify-between items-end">
-              <div>
-                <p className="text-[10px] font-black text-red-600 uppercase tracking-[0.3em]">Established</p>
-                <p className="text-xl font-black uppercase">Feb 2026</p>
-              </div>
-              <div className="text-right">
-                <p className="text-[10px] font-black text-red-600 uppercase tracking-[0.3em]">Status</p>
-                <p className="text-xl font-black uppercase">Eating...</p>
+              {/* COPY EMAIL ACTION */}
+              <div 
+                onClick={handleCopy}
+                className="cursor-pointer group select-none transition-all active:scale-95"
+              >
+                <p className={`text-[10px] font-black uppercase tracking-[0.3em] transition-colors duration-300 ${copied ? 'text-white' : 'text-red-600'}`}>
+                  {copied ? "Address Copied to Clipboard" : "Did we miss one?"}
+                </p>
+                <p className="text-xl font-black uppercase group-hover:text-red-600 transition-colors">
+                  {copied ? "COPIED" : "Submit"}
+                </p>
               </div>
             </div>
           </div>
