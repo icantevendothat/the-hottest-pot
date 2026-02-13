@@ -25,7 +25,7 @@ export default function Home() {
             viewMode={viewMode}
             setViewMode={setViewMode}
             selectedPlace={selectedPlace}
-            setSelectedPlace={setSelectedPlace} // Passing the function here
+            setSelectedPlace={setSelectedPlace} 
           />
         </div>
 

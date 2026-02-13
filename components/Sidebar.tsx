@@ -2,18 +2,25 @@
 import { HotPotPlace } from '@/data/spots';
 import SteamRating from './SteamRating';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface SidebarProps {
   viewMode: 'map' | 'list';
   setViewMode: (mode: 'map' | 'list') => void;
   selectedPlace: HotPotPlace | null;
-  // Added this to allow the close button to clear the selection
   setSelectedPlace: (place: HotPotPlace | null) => void; 
 }
 
 export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelectedPlace }: SidebarProps) {
+  const [hasDismissedWelcome, setHasDismissedWelcome] = useState(false);
+
+  const handleClose = () => {
+    setSelectedPlace(null);
+    setHasDismissedWelcome(true);
+  };
+
   return (
-    <div className="flex flex-col h-fit md:h-full bg-black border-[4px] border-red-600 p-4 md:p-8 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)] font-sans">
+    <div className="flex flex-col h-fit md:h-full bg-black border-[4px] border-red-600 p-4 md:p-8 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)] font-sans transition-all duration-300">
       
       <div className="flex justify-between items-end mb-4 md:mb-12 group">
         <h1 className="text-2xl md:text-4xl font-black leading-[0.8] uppercase tracking-tighter">
@@ -26,7 +33,7 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelec
         />
       </div>
 
-      <div className="flex w-full border-[3px] border-red-600 mb-6 md:mb-16 bg-black overflow-hidden">
+      <div className={`flex w-full border-[3px] border-red-600 ${hasDismissedWelcome && !selectedPlace ? 'mb-2' : 'mb-6'} md:mb-16 bg-black overflow-hidden`}>
         <button 
           onClick={() => setViewMode('map')} 
           className={`flex-1 py-2 md:py-3 font-black uppercase text-[10px] tracking-widest ${viewMode === 'map' ? 'bg-red-600 text-white' : 'text-white'}`}
@@ -41,7 +48,7 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelec
         </button>
       </div>
 
-      {!selectedPlace && (
+      {!selectedPlace && !hasDismissedWelcome && (
         <div className="mb-4 md:mb-12 animate-in fade-in duration-700">
           <p className="text-[11px] md:text-sm leading-tight uppercase font-black tracking-tight text-white">
             Welcome to the Hottest Pot. <br></br><br></br>
@@ -71,7 +78,7 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelec
             )}
 
             <div className="flex justify-between border-b border-white/20 pb-1 text-[11px] md:text-base">
-              <span>Overall Taste</span> 
+              <span>Overall</span> 
               <SteamRating 
                 score={typeof selectedPlace.ratings.overall === 'string' ? 0 : selectedPlace.ratings.overall} 
                 size={11} 
@@ -101,14 +108,13 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelec
         ) : null}
       </div>
 
-      <div className={`mt-auto pt-4 space-y-4 ${selectedPlace ? 'block' : 'block'}`}>
-        {!selectedPlace && (
+      <div className={`${hasDismissedWelcome && !selectedPlace ? 'pt-2' : 'pt-4'} mt-auto space-y-4`}>
+        {!selectedPlace && !hasDismissedWelcome && (
            <p className="uppercase font-black text-[8px] md:text-[9px] tracking-[0.3em] leading-relaxed italic opacity-40 text-center">
             Click a spot <br /> to get started!
           </p>
         )}
         
-        {/* Footer Links Container */}
         <div className="flex justify-between items-end">
           <div className="text-left">
             <Link href="/about">
@@ -118,12 +124,11 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelec
             </Link>
           </div>
 
-          {/* MOBILE ONLY CLOSE BUTTON */}
           <button 
-            onClick={() => setSelectedPlace(null)}
+            onClick={handleClose}
             className="md:hidden font-black uppercase text-[10px] border-b-2 border-red-600 text-red-600 pb-0.5 active:scale-95 transition-transform"
           >
-            Close ×
+            {selectedPlace ? "Close ×" : (hasDismissedWelcome ? "" : "Dismiss ×")}
           </button>
         </div>
       </div>
