@@ -30,14 +30,17 @@ export default function ListView({ spots, onSelect }: { spots: HotPotPlace[], on
           </div>
         ))}
 
-        {spots.map((spot) => {
-          const rawRatings = Object.values(spot.ratings);
-          const totalNumericalScore = rawRatings.reduce((a: number, b) => a + getScore(b), 0);
-          const average = totalNumericalScore > 0 
-            ? (totalNumericalScore / rawRatings.length).toFixed(1) 
-            : "N/A";
+      {spots.map((spot) => {
+        const ratingsArray = Object.values(spot.ratings);
+        
+        // FORCE 'a' to be a number in the accumulator
+        const totalNumericalScore = ratingsArray.reduce((a: number, b) => a + getScore(b), 0);
+        
+        const average = totalNumericalScore > 0 
+          ? (totalNumericalScore / ratingsArray.length).toFixed(1) 
+          : "N/A";
 
-          return (
+        return (
             <div key={spot.id} className="contents group">
               <div 
                 onClick={() => onSelect(spot)} 

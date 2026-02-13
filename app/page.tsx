@@ -18,26 +18,28 @@ export default function Home() {
         />
       </div>
 
-      <div className="absolute inset-2 md:inset-4 z-10 flex flex-col md:flex-row gap-2 md:gap-4 pointer-events-none">
+      <div className="absolute inset-0 md:inset-4 z-10 flex flex-col md:flex-row gap-2 md:gap-4 pointer-events-none">
         
-        <div className="w-full md:w-[380px] h-auto md:h-full pointer-events-auto shrink-0">
+        <div className="w-full md:w-[380px] h-fit md:h-full p-2 md:p-0 pointer-events-auto shrink-0">
           <Sidebar 
             viewMode={viewMode}
             setViewMode={setViewMode}
             selectedPlace={selectedPlace}
+            setSelectedPlace={setSelectedPlace} // Passing the function here
           />
         </div>
 
         {viewMode === 'list' && (
-          <div className="flex-1 h-full bg-black/80 backdrop-blur-md border-[4px] border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.3)] pointer-events-auto overflow-auto p-2 md:p-6">
+          <div className="flex-1 h-full bg-black/80 backdrop-blur-md border-[4px] border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.3)] pointer-events-auto overflow-auto m-2 md:m-0 p-2 md:p-6">
             <ListView 
               spots={HOT_POT_DATA} 
               onSelect={(place: HotPotPlace) => setSelectedPlace(place)} 
             />
           </div>
         )}
+
+        <div className="flex-1 md:hidden pointer-events-none" />
       </div>
     </main>
   );
 }
-

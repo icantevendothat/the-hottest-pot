@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 to-black"></div>
       </div>
 
-      <div className="relative md:absolute inset-0 z-10 flex items-center justify-center p-4 md:p-10 py-35 md:py-0">
+      <div className="relative md:absolute inset-0 z-10 flex items-center justify-center p-4 md:p-10 py-17 md:py-0">
         <div className="w-full max-w-2xl bg-black border-[4px] border-red-600 p-6 md:p-12 shadow-[0_0_50px_rgba(220,38,38,0.4)] animate-in fade-in zoom-in duration-500">
           
           <Link href="/" className="inline-block mb-6 md:mb-8 text-[10px] font-black uppercase tracking-widest border-b border-white hover:text-red-600 hover:border-red-600 transition-colors">

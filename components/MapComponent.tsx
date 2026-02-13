@@ -44,6 +44,7 @@ export default function MapComponent({
           style={{ width: '100%', height: '100%' }}
           disableDefaultUI={true}
           colorScheme="DARK"
+          gestureHandling={'greedy'}
         >
           {savedSpots.map((place) => (
             <AdvancedMarker 

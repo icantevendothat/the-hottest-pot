@@ -7,9 +7,11 @@ interface SidebarProps {
   viewMode: 'map' | 'list';
   setViewMode: (mode: 'map' | 'list') => void;
   selectedPlace: HotPotPlace | null;
+  // Added this to allow the close button to clear the selection
+  setSelectedPlace: (place: HotPotPlace | null) => void; 
 }
 
-export default function Sidebar({ viewMode, setViewMode, selectedPlace }: SidebarProps) {
+export default function Sidebar({ viewMode, setViewMode, selectedPlace, setSelectedPlace }: SidebarProps) {
   return (
     <div className="flex flex-col h-fit md:h-full bg-black border-[4px] border-red-600 p-4 md:p-8 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)] font-sans">
       
@@ -99,19 +101,30 @@ export default function Sidebar({ viewMode, setViewMode, selectedPlace }: Sideba
         ) : null}
       </div>
 
-      <div className={`mt-auto pt-4 space-y-4 ${selectedPlace ? 'hidden md:block' : 'block'}`}>
+      <div className={`mt-auto pt-4 space-y-4 ${selectedPlace ? 'block' : 'block'}`}>
         {!selectedPlace && (
            <p className="uppercase font-black text-[8px] md:text-[9px] tracking-[0.3em] leading-relaxed italic opacity-40 text-center">
             Click a spot <br /> to get started!
           </p>
         )}
         
-        <div className="text-left">
-          <Link href="/about">
-            <button className="font-black uppercase text-[10px] border-b-2 border-white pb-0.5 hover:text-red-600 hover:border-red-600 transition-colors">
-              About
-            </button>
-          </Link>
+        {/* Footer Links Container */}
+        <div className="flex justify-between items-end">
+          <div className="text-left">
+            <Link href="/about">
+              <button className="font-black uppercase text-[10px] border-b-2 border-white pb-0.5 hover:text-red-600 hover:border-red-600 transition-colors">
+                About
+              </button>
+            </Link>
+          </div>
+
+          {/* MOBILE ONLY CLOSE BUTTON */}
+          <button 
+            onClick={() => setSelectedPlace(null)}
+            className="md:hidden font-black uppercase text-[10px] border-b-2 border-red-600 text-red-600 pb-0.5 active:scale-95 transition-transform"
+          >
+            Close ×
+          </button>
         </div>
       </div>
     </div>

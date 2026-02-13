@@ -369,5 +369,14 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     location: { lat: 40.7461, lng: -73.9439 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
     reviewText: ""  
+  },
+  {
+    id: '39',
+    name: "Lucky Star (Berlin)",
+    rank: "Premium AYCE",
+    address: "Friedrichstraße 127, 10117 Berlin, Germany",
+    location: {lat: 52.5254779, lng: 13.3870788 }, 
+    ratings: { overall: "4.4", soup: "4", sauce: "4", ingredients: "4", atmosphere: "5", value: "5" },
+    reviewText: "We love this place. Great staff, great food, great value. They don't have a sauce bar but they do give you some key ingredients to make your own sauce at the table. Can't wait to make it back here one day."  
   }
 ];
