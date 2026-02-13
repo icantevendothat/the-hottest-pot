@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 import { HotPotPlace } from '@/data/spots';
 
@@ -10,13 +11,22 @@ export default function MapComponent({
   savedSpots: HotPotPlace[], 
   onSelectPlace: (place: HotPotPlace) => void 
 }) {
+  // desktop 
+  const desktopCenter = { lat: 40.7200, lng: -73.950 };
   
-  // Logic to return the correct local file path
+  // mobile 
+  const mobileCenter = { lat: 40.7550, lng: -73.920 };
+
+  const [center, setCenter] = useState(desktopCenter);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setCenter(mobileCenter);
+    }
+  }, []);
+  
   const getCustomIconPath = (score: number | string) => {
-    // Check for "n/a" or a numerical 0
     if (score === "n/a" || score === 0) return '/blackemoji.png';
-    
-    // Convert to number for threshold checks if it's not "n/a"
     const numScore = typeof score === 'string' ? parseFloat(score) : score;
 
     if (numScore >= 4) return '/redsteam.png';
@@ -29,7 +39,7 @@ export default function MapComponent({
       <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}>
         <Map
           defaultZoom={11.5} 
-          defaultCenter={{ lat: 40.7200, lng: -73.950 }} 
+          defaultCenter={center} 
           mapId="831a6c66556f2bf791bc8729" 
           style={{ width: '100%', height: '100%' }}
           disableDefaultUI={true}

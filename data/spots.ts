@@ -13,7 +13,7 @@ export type HotPotPlace = {
   rank: string;      
   address: string;
   location: { lat: number; lng: number };
-  imageUrl?: string; // Match this key in the Sidebar
+  imageUrl?: string; 
   ratings: Ratings;
   reviewText: string; 
 };
@@ -26,7 +26,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "138-23 39th Ave, Queens, NY",
     location: { lat: 40.7592, lng: -73.8315 },
     ratings: { overall: "4.3", soup: 4.5, sauce: 5, ingredients: 5, atmosphere: 4, value: 3 },
-    reviewText: "The gold standard for service. While wait times are insane, the tomato broth is undefeated."
+    reviewText: "Yes. It's expensive. If you can afford it, it's worth it. It's like the Disneyland of Hot Pot."
   },
   {
     id: '2',
@@ -35,7 +35,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "92 Hester St, New York, NY",
     location: { lat: 40.7165, lng: -73.9937 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Old school AYCE. It is loud, crowded, and smells amazing. Best value for money in Chinatown."
+    reviewText: ""
   },
   {
     id: '3',
@@ -44,7 +44,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-20 38th Ave, Flushing, NY 11354",
     location: { lat: 40.7599, lng: -73.8310 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "An elite-tier hot pot experience in the heart of Flushing with consistently high quality ingredients."
+    reviewText: ""
   },
   {
     id: '4',
@@ -53,7 +53,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "131 Bowery, New York, NY 10002",
     location: { lat: 40.7192, lng: -73.9942 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Stunning traditional decor and authentic Sichuan spice levels. A must-visit in Manhattan."
+    reviewText: ""
   },
   {
     id: '5',
@@ -62,7 +62,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "38-12 Prince St, Flushing, NY 11354",
     location: { lat: 40.7604, lng: -73.8331 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Excellent broth depth and premium meat selections. Highly regarded for its authenticity."
+    reviewText: ""  
   },
   {
     id: '6',
@@ -71,7 +71,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "133-51 37th Ave, Flushing, NY 11354",
     location: { lat: 40.7608, lng: -73.8322 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Famous for traditional copper pots and authentic Beijing-style lamb."
+    reviewText: ""  
   },
   {
     id: '7',
@@ -80,7 +80,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "39-07 Prince St, Flushing, NY 11354",
     location: { lat: 40.7597, lng: -73.8329 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Great energy and high-quality broth options. Very popular for groups."
+    reviewText: ""  
   },
   {
     id: '8',
@@ -89,7 +89,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "654 6th Ave, New York, NY 10010",
     location: { lat: 40.7411, lng: -73.9928 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Vibrant atmosphere with beautiful presentation and solid spicy broth options."
+    reviewText: ""
   },
   {
     id: '9',
@@ -98,7 +98,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "209-18 Northern Blvd, Bayside, NY 11361",
     location: { lat: 40.7590, lng: -73.7745 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "The Bayside outpost offers the same high quality as the Flushing flagship with a local feel."
+    reviewText: ""
   },
   {
     id: '10',
@@ -107,7 +107,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-20 38th Ave, Flushing, NY 11354",
     location: { lat: 40.7599, lng: -73.8310 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Focuses on high-end Wagyu shabu-shabu. The meat quality here is exceptional."
+    reviewText: ""  
   },
   {
     id: '11',
@@ -116,7 +116,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "55 3rd Ave, New York, NY 10003",
     location: { lat: 40.7303, lng: -73.9890 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Upscale individual pots. Known for the shrimp paste and high-end service."
+    reviewText: ""  
   },
   {
     id: '12',
@@ -125,7 +125,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "306 W 40th St, New York, NY 10018",
     location: { lat: 40.7558, lng: -73.9908 },
     ratings: { overall: 2.6, soup: 3, sauce: 3, ingredients: 2, atmosphere: 2, value: 3 },
-    reviewText: "Massive variety. High-quality KBBQ and Hot Pot simultaneously."
+    reviewText: "Nothing special. Meat was kind of suspicious. Service was wonderful though."  
   },
   {
     id: '13',
@@ -134,7 +134,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "285 Grand St, New York, NY 10002",
     location: { lat: 40.7176, lng: -73.9925 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "The quintessential NYC hot pot birthday spot. Reliable and budget-friendly."
+    reviewText: ""  
   },
   {
     id: '14',
@@ -143,7 +143,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-59 37th Ave, Flushing, NY 11354",
     location: { lat: 40.7601, lng: -73.8295 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Unique because the broth is so flavorful you don't even need a dipping sauce."
+    reviewText: ""  
   },
   {
     id: '15',
@@ -152,7 +152,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "5816 8th Ave, Brooklyn, NY 11220",
     location: { lat: 40.6361, lng: -74.0094 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Authentic flavors with a focus on traditional Sichuan spice."
+    reviewText: ""  
   },
   {
     id: '16',
@@ -161,7 +161,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "220 E 14th St, New York, NY 10003",
     location: { lat: 40.7326, lng: -73.9868 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Living up to its name with a numbingly authentic Sichuan peppercorn broth."
+    reviewText: ""  
   },
   {
     id: '17',
@@ -170,7 +170,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "135-21 40th Rd, Flushing, NY 11354",
     location: { lat: 40.7145, lng: -73.9982 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Specializes in Maots'ai (hot pot for one). Incredible value."
+    reviewText: ""  
   },
   {
     id: '18',
@@ -179,7 +179,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "103 Mott St, New York, NY 10013",
     location: { lat: 40.7171, lng: -73.9981 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "One of the few spots for both high-quality dim sum and AYCE hot pot."
+    reviewText: ""  
   },
   {
     id: '19',
@@ -188,7 +188,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "52 Bowery, New York, NY 10013",
     location: { lat: 40.7155, lng: -73.9968 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "A famous chain from China that delivers consistent, high-grade spicy broth."
+    reviewText: ""  
   },
   {
     id: '20',
@@ -197,7 +197,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "212-02 Northern Blvd, Bayside, NY 11361",
     location: { lat: 40.7592, lng: -73.7715 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Modern, clean, and great for families. Their ingredients are noticeably fresh."
+    reviewText: ""  
   },
   {
     id: '21',
@@ -206,7 +206,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "811 54th St, Brooklyn, NY 11220",
     location: { lat: 40.6385, lng: -74.0055 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "The decor transports you to old-world China. Excellent lamb and beef platters."
+    reviewText: ""  
   },
   {
     id: '22',
@@ -215,7 +215,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-76 39th Ave, Flushing, NY 11354",
     location: { lat: 40.7589, lng: -73.8278 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Solid variety and a great sauce bar."
+    reviewText: ""  
   },
   {
     id: '23',
@@ -224,7 +224,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "133-35 Roosevelt Ave, Flushing, NY 11354",
     location: { lat: 40.7591, lng: -73.8328 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Self-service style where you pay by weight. Great for a fast lunch."
+    reviewText: ""  
   },
   {
     id: '24',
@@ -233,7 +233,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-11 38th Ave, Flushing, NY 11354",
     location: { lat: 40.7602, lng: -73.8315 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Specializes in sour soup hot pot from Guizhou."
+    reviewText: ""  
   },
   {
     id: '25',
@@ -242,7 +242,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "208-17 Northern Blvd, Bayside, NY 11361",
     location: { lat: 40.7592, lng: -73.7752 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Famous for their Sauerkraut fish pot. The broth is incredibly savory."
+    reviewText: ""  
   },
   {
     id: '26',
@@ -251,7 +251,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "37-17 Prince St, Flushing, NY 11354",
     location: { lat: 40.7615, lng: -73.8335 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "A great spot for a quick Malatang fix without the full table-service wait."
+    reviewText: ""  
   },
   {
     id: '27',
@@ -260,7 +260,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "38-06 Prince St, Flushing, NY 11354",
     location: { lat: 40.7607, lng: -73.8331 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Neon lights and a high-energy vibe. Excellent for late-night hot pot."
+    reviewText: ""  
   },
   {
     id: '28',
@@ -269,7 +269,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-51 37th Ave, Flushing, NY 11354",
     location: { lat: 40.7602, lng: -73.8302 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Quality of the lamb meat is the standout here."
+    reviewText: ""  
   },
   {
     id: '29',
@@ -278,7 +278,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "133-25 Roosevelt Ave, Flushing, NY 11354",
     location: { lat: 40.7588, lng: -73.8335 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Small, unpretentious, but the food speaks for itself."
+    reviewText: ""  
   },
   {
     id: '30',
@@ -287,7 +287,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "155-14 Northern Blvd, Flushing, NY 11354",
     location: { lat: 40.7645, lng: -73.8092 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Primarily known for KBBQ, but their hot stew/pot options are top-tier."
+    reviewText: ""  
   },
   {
     id: '31',
@@ -296,7 +296,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "135-15 40th Rd, Flushing, NY 11354",
     location: { lat: 40.7585, lng: -73.8305 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Chic interior with a 'New Style' approach. Great for dates."
+    reviewText: ""  
   },
   {
     id: '32',
@@ -305,7 +305,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "159 Canal St, New York, NY 10013",
     location: { lat: 40.7171, lng: -73.9985 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Heavy hitters in the spice department."
+    reviewText: ""  
   },
   {
     id: '33',
@@ -314,7 +314,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "39-16 Prince St, Flushing, NY 11354",
     location: { lat: 40.7594, lng: -73.8333 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Beautifully presented dishes and high-end decor."
+    reviewText: ""  
   },
   {
     id: '34',
@@ -323,7 +323,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-20 Roosevelt Ave, Flushing, NY 11354",
     location: { lat: 40.7595, lng: -73.8301 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Convenient mini pots perfect for a solo shopper."
+    reviewText: ""  
   },
   {
     id: '35',
@@ -332,7 +332,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "136-21 Latimer Pl, Flushing, NY 11354",
     location: { lat: 40.7631, lng: -73.8305 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "The place to go if you want a massive seafood variety."
+    reviewText: ""  
   },
   {
     id: '36',
@@ -341,7 +341,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "194 Grand St, New York, NY 10013",
     location: { lat: 40.7191, lng: -73.9959 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Reliable AYCE that has been a Chinatown staple for years."
+    reviewText: ""  
   },
   {
     id: '37',
@@ -350,7 +350,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "98 Bowery, New York, NY 10013",
     location: { lat: 40.7175, lng: -73.9961 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "Great combination of charcoal BBQ skewers and hot pot."
+    reviewText: ""  
   },
   {
     id: '38',
@@ -359,7 +359,7 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "42-22 Crescent St, Long Island City, NY 11101",
     location: { lat: 40.7505, lng: -73.9402 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "The LIC location features a stunning, sleek interior."
+    reviewText: ""  
   },
   {
     id: '39',
@@ -368,6 +368,6 @@ export const HOT_POT_DATA: HotPotPlace[] = [
     address: "23-10 Jackson Ave, Long Island City, NY 11101",
     location: { lat: 40.7461, lng: -73.9439 },
     ratings: { overall: "n/a", soup: "n/a", sauce: "n/a", ingredients: "n/a", atmosphere: "n/a", value: "n/a" },
-    reviewText: "High-quality All-You-Can-Eat with a focus on fresh seafood."
+    reviewText: ""  
   }
 ];

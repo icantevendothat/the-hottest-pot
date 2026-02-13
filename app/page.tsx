@@ -11,7 +11,6 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen bg-black overflow-hidden font-sans">
-      {/* LAYER 0: THE MAP (Always background) */}
       <div className="absolute inset-0 z-0">
         <MapComponent 
           savedSpots={HOT_POT_DATA} 
@@ -19,12 +18,9 @@ export default function Home() {
         />
       </div>
 
-      {/* LAYER 1: THE UI (Floating on top) */}
-      {/* p-4 creates the floating border where the map peaks through */}
-      <div className="absolute inset-4 z-10 flex gap-4 pointer-events-none">
+      <div className="absolute inset-2 md:inset-4 z-10 flex flex-col md:flex-row gap-2 md:gap-4 pointer-events-none">
         
-        {/* SIDEBAR: Always visible, fixed width */}
-        <div className="w-[380px] h-full pointer-events-auto">
+        <div className="w-full md:w-[380px] h-auto md:h-full pointer-events-auto shrink-0">
           <Sidebar 
             viewMode={viewMode}
             setViewMode={setViewMode}
@@ -32,9 +28,8 @@ export default function Home() {
           />
         </div>
 
-        {/* LIST VIEW: Only appears to the right of Sidebar when active */}
         {viewMode === 'list' && (
-          <div className="flex-1 h-full bg-black/80 backdrop-blur-md border-[4px] border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.3)] pointer-events-auto overflow-auto p-6">
+          <div className="flex-1 h-full bg-black/80 backdrop-blur-md border-[4px] border-red-600 shadow-[0_0_30px_rgba(220,38,38,0.3)] pointer-events-auto overflow-auto p-2 md:p-6">
             <ListView 
               spots={HOT_POT_DATA} 
               onSelect={(place: HotPotPlace) => setSelectedPlace(place)} 
@@ -45,3 +40,4 @@ export default function Home() {
     </main>
   );
 }
+
